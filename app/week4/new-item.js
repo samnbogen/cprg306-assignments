@@ -60,29 +60,38 @@ export default function NewItem() {
             </label>
 
             <label className="block mb-4">
-              <span className="text-gray-800">Item quantity:</span>
-              <input
-                type="number"
-                required
-                onChange={handleQuantityChange}
-                value={quantity}
-                className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white"
-              />
+                <span className="text-gray-800">Item quantity:</span>
+                <input
+                    type="number"
+                    required
+                    onChange={handleQuantityChange}
+                    value={quantity}
+                    className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white"
+                />
             </label>
 
             <label className="block mb-4 ">
-              <span className="text-gray-800">Item Category:</span>
-              <input
-                required
-                onChange={handleCategoryChange}
-                value={category}
-                className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white"
-              />
+                <span className="text-gray-800">Item Category:</span>
+                <select value = {category} 
+                    onChange = {handleCategoryChange} 
+                    className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white">
+                    <option value="produce">Produce</option>
+                    <option value="dairy">Dairy</option>
+                    <option value="bakery">Bakery</option>
+                    <option value="meat">Meat</option>
+                    <option value="frozen foods">Frozen Foods</option>
+                    <option value="canned goods">Canned Goods</option>
+                    <option value="dry goods">Dry Goods</option>
+                    <option value="beverages">Beverages</option>
+                    <option value="snacks">Snacks</option>
+                    <option value="household">Household</option>
+                    <option value="other">Other</option>
+                </select>
             </label>
 
             <button
               type="submit"
-              className="w-full py-2 px-4 bg-sky-600 hover:bg-sky-500 rounded-md text-white"
+              className="w-full py-2 px-4 bg-sky-600 hover:bg-sky-500 rounded-md text-white font-bold"
             >
               Create Item
             </button>
@@ -91,5 +100,4 @@ export default function NewItem() {
       </div>
     </main>
     )
-
 }
