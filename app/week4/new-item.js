@@ -23,7 +23,9 @@ export default function NewItem() {
         setQuantity(1);
         setCategory("produce");
 
-        setItemCreated(false);
+        setItemCreated(false)
+        
+        alert("Item Created" + " " + newItem.name + " " + newItem.quantity + " " + newItem.category);
     };
 
     const handleNameChange = (event) => {
@@ -63,7 +65,7 @@ export default function NewItem() {
                 <span className="text-gray-800">Item quantity:</span>
                 <input
                     type="number"
-                    required
+                    required min = "1" max = "99"
                     onChange={handleQuantityChange}
                     value={quantity}
                     className="mt-1 p-1 block w-full rounded-md text-black bg-gray-100 focus:bg-white"
