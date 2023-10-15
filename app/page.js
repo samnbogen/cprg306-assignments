@@ -11,7 +11,12 @@ export default function Page() {
         <li><Link href="/week3">Week 3</Link></li>
         <li><Link href="/week4">Week 4</Link></li>
         <li><Link href="/week5">Week 5</Link></li>
+        <li><Link href="/week6">Week 6</Link></li>
       </ul>
     </div>
   );
 }
+
+
+
+//npm run dev
