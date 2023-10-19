@@ -1,6 +1,5 @@
 "use client"
 
-import { Main } from "next/document";
 import { useState } from "react"
 
 export default function NewItem() {
@@ -9,9 +8,9 @@ export default function NewItem() {
     const [category, setCategory] = useState("produce");
     const [itemCreated, setItemCreated] = useState(false);
 
-    const handleSubmit = (item) => {
+    const handleSubmit = (item) => {  
         item.preventDefault();
-    
+      
         const newItem = {
             name,
             quantity,
@@ -19,13 +18,13 @@ export default function NewItem() {
         };
         console.log(newItem);
 
+        handleAddItem(newItem);
+
         setName("");
         setQuantity(1);
         setCategory("produce");
 
         setItemCreated(false)
-        
-        alert("Item Created" + " " + newItem.name + " " + newItem.quantity + " " + newItem.category);
     };
 
     const handleNameChange = (event) => {
@@ -38,9 +37,16 @@ export default function NewItem() {
         setCategory(event.target.value);
     };
 
+    //added week6
+    const [items, setItems] = useState([]);
+
+    const handleAddItem = (newItem) => {
+        setItems([...items, newItem]);
+    };
+    
     return (
         <main>
-      <div className="min-h-screen bg-blue-gray-100 flex items-center justify-center">
+      <div className="first-letter:bg-blue-gray-100 m-4">
         {itemCreated && (
           <div className="absolute top-0 mt-8 text-2xl text-yellow-400">
             Event Created
@@ -92,9 +98,9 @@ export default function NewItem() {
             </label>
 
             <button
-              type="submit"
-              className="w-full py-2 px-4 bg-sky-600 hover:bg-sky-500 rounded-md text-white font-bold"
-            >
+              type="submit" 
+              onClick={() => handleSubmit()}
+              className="w-full py-2 px-4 bg-sky-600 hover:bg-sky-500 rounded-md text-white font-bold">
               Create Item
             </button>
           </form>

@@ -2,11 +2,10 @@
 
 import Item from "./item.js";
 import { useState } from "react";
-import items from "./items.json";
+
+export default function ItemList({items}) {
 
 
-export default function ItemList() {
-  
   const [sortby, setSortby] = useState("name");
 
   if (sortby === "name") {
@@ -24,7 +23,6 @@ export default function ItemList() {
   const handleCategory = () => {
     setSortby("category");
   }
-
 
   return (
     <div>

@@ -1,6 +1,5 @@
 "use client"
 
-import { Main } from "next/document";
 import { useState } from "react"
 
 export default function NewItem() {
