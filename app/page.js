@@ -12,6 +12,8 @@ export default function Page() {
         <li className='hover:text-sky-500'><Link href="/week4">Week 4</Link></li>
         <li className='hover:text-sky-500'><Link href="/week5">Week 5</Link></li>
         <li className='hover:text-sky-500'><Link href="/week6">Week 6</Link></li>
+        <li className='hover:text-sky-500'><Link href="/week7">Week 7</Link></li>
+        <li className='hover:text-sky-500'><Link href="/week8">Week 8</Link></li>
       </ul>
     </div>
   );
