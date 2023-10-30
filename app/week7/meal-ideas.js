@@ -3,20 +3,29 @@
 import { useState, useEffect } from "react";
 
 async function fetchMealIdeas(ingredient){
+    
     const response = await fetch(
-        'https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}'
+        `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
       );
       const data = await response.json();
-      return data;
+      return data.meals;
 }
 
 export default function MealIdea({ingredient}){
     const [mealIdea, setMealIdea] = useState([]);
 
     async function loadMeals() {
+        
         try{
-            const data = await fetchMealIdea(ingredient);
-            setMealIdea(data);
+            if (ingredient === "") {
+                setMealIdea([]);
+            }
+            const meals = await fetchMealIdeas(ingredient);
+            if (meals !== null) {
+                setMealIdea(meals);
+            } else {
+                setMealIdea([]);
+            }
         } catch (error) {
             console.log(error);
         }

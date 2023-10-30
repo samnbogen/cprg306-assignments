@@ -5,7 +5,6 @@ import { useState } from "react";
 
 export default function ItemList({items, onItemSelect}) {
 
-
   const [sortby, setSortby] = useState("name");
 
   if (sortby === "name") {
@@ -24,10 +23,6 @@ export default function ItemList({items, onItemSelect}) {
     setSortby("category");
   }
 
-  const handleItemSelect = () => {
-    alert("You clicked an item!");
-  }
-
   return (
     <div>
       <button className="bg-sky-800 text-white font-bold py-2 px-4 rounded focus:bg-sky-500 m-4 p-2" onClick={handleName}>Sort by Name</button>
@@ -38,7 +33,7 @@ export default function ItemList({items, onItemSelect}) {
           name={item.name}
           quantity={item.quantity}
           category={item.category}
-          onselect={() => onItemSelect(item)}
+          onSelect={() => onItemSelect(item)}
         />
       ))}
     </div>

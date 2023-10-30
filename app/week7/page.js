@@ -15,21 +15,21 @@ export default function Page() {
     setItems([...items, newItem]);
     };
 
-    const handleItemSelect = (item) => {
-      let newItems = items.filter((i) => i.id !== item.id);
-      setItems(newItems);
-    }
-
-    return (
-      <main>
-        <div className="flex">
-          <NewItem onAddItem={handleAddItem} />
-          <MealIdea ingredient={handleItemSelect} />
-        </div>
-        <h1 className="text-4xl font-bold m-6 text-green-600">
-        Shopping List
-        </h1>
-        <ItemList items={items} />
-      </main>
-    );
+    function handleItemSelect(item) {
+      let name = item.name.split(",")[0].replace(/[^a-zA-Z ]/g, "").trim();
+      setMealIdea(name);
   }
+
+  return (
+    <main>
+      <div className="flex">
+        <NewItem onAddItem={handleAddItem} />
+        <MealIdea ingredient={mealIdea} />
+      </div>
+      <h1 className="text-4xl font-bold m-6 text-green-600">
+        Shopping List
+      </h1>
+      <ItemList items={items} onItemSelect={handleItemSelect}/>
+    </main>
+  );
+}
