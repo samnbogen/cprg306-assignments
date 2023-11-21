@@ -19,13 +19,13 @@ export default function Page() {
             <div className="flex justify-center">
             {user ? (
                 <div>
-                    <button className="bg-sky-800 text-white font-bold py-2 px-2 rounded m-4 p-2" onClick={handleSignOut}>Sign Out</button>
+                    <button className="bg-sky-800 text-white font-bold py-2 px-4 rounded m-4 p-2" onClick={handleSignOut}>Sign Out</button>
                     <p className='text-white font-bold hover:text-sky-500'>
-                        <Link href="/week8/shopping-list">Shopping List</Link>
+                        <Link href="/week10/shopping-list">Shopping List</Link>
                     </p>
                 </div>
                 ) : (
-                <button className="bg-sky-800 text-white font-bold py-2 px-2 rounded m-4 p-2" onClick={handleSignIn}>Sign In</button>
+                <button className="bg-sky-800 text-white font-bold py-2 px-4 rounded m-4 p-2" onClick={handleSignIn}>Sign In</button>
             )}
             </div>
         </main>

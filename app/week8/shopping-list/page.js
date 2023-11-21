@@ -5,6 +5,7 @@ import { useState } from "react";
 import itemsData from "./items.json";
 import NewItem from "./new-item";
 import MealIdea from "./meal-ideas";
+import { useUserAuth } from "../_utils/auth-context";
 
 export default function Page() {
     // read the items.json file and store the data in a variable called items
@@ -21,15 +22,25 @@ export default function Page() {
   }
 
   return (
-    <main>
-      <div className="flex">
-        <NewItem onAddItem={handleAddItem} />
-        <MealIdea ingredient={mealIdea} />
-      </div>
-      <h1 className="text-4xl font-bold m-6 text-green-600">
-        Shopping List
-      </h1>
-      <ItemList items={items} onItemSelect={handleItemSelect}/>
+    <main>      
+      {user ? (
+        <>
+          <div className="flex">
+            <NewItem onAddItem={handleAddItem} />
+            <MealIdea ingredient={mealIdea} />
+          </div>
+          <h1 className="text-4xl font-bold m-6 text-green-600">
+            Shopping List
+          </h1>
+          <ItemList items={items} onItemSelect={handleItemSelect}/>
+        </>    
+      ) : (          
+        <div>
+          <p className='text-white font-bold'> 
+            You Have to sign in!
+          </p>
+        </div>
+      )} 
     </main>
   );
 }
